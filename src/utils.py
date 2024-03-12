@@ -9,8 +9,6 @@ def open_data(path):
         list_json = json.load(file)
         return list_json
 
-#new_list=open_data("operations.json")
-#print (new_list)
 
 def get_executed_operation(data):
     """
@@ -25,11 +23,6 @@ def get_executed_operation(data):
 
 
 #out_filter = filter(get_executed_operation, new_list)
-#print(list(out_filter))
-
-
-#print (get_executed_operation(new_list))
-
 
 def sort_operations_by_date(data):
     """
@@ -39,9 +32,6 @@ def sort_operations_by_date(data):
     data_new = sorted(data, key= itemgetter("date"))
     return data_new
 
-#print (sort_operations_by_date(new_list))
-
-
 def quantity_sort_operations_by_date (list, last_count):
     """
     вывод последних пять выполненных операций
@@ -50,26 +40,18 @@ def quantity_sort_operations_by_date (list, last_count):
     #res = ' '.join(reversed(five_sort))
     return five_sort
 
-
-#print (quantity_sort_operations_by_date(new_list, 5))
-
-
 def format_date(date):
     """
-    :param date: принимает значение ключа 'date' и форматирует дату в нужный формат для вывода
-    :return: дату в виде строки в нужном формате
+     принимает значение ключа 'date' и форматирует дату в нужный формат для вывода
     """
     dt = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
     return ( dt.strftime('%d.%m.%Y'))
 
 
-#print (format_date("data"))
-
 def account_mask(account):
     """
-    :param account:значение ключа 'from' в виде строки, если в строке есть слово Счет то делает модификатор строки счета
+    значение ключа 'from' в виде строки, если в строке есть слово Счет то делает модификатор строки счета
     иначе делает модификатор строки под карты
-    :return: модификатор строки
     """
     if len(account) == 0:
         return account

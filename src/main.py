@@ -11,7 +11,7 @@ new_list=open_data("operations.json")
 right_list=get_executed_operation(new_list)
 sort_list=sort_operations_by_date(right_list)
 five_operations = quantity_sort_operations_by_date(sort_list,5)
-#print (five_operations)
+
 
 
 for item in five_operations:
