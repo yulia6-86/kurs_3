@@ -1,5 +1,4 @@
 import os
-
 from config import ROOT_DIR
 from src.utils import (open_data, get_executed_operation, sort_operations_by_date,
                        format_date, account_mask)
