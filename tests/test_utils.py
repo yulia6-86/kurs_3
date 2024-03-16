@@ -1,7 +1,8 @@
 import os
+
 from config import ROOT_DIR
-from src.utils import (open_data, get_executed_operation, sort_operations_by_date,
-                       format_date, account_mask)
+from src.utils import (account_mask, format_date, get_executed_operation,
+                       open_data, sort_operations_by_date)
 
 a = [{'id': 801684332, 'state': 'EXECUTED', 'date': '2019-11-05T12:04:13.781725',
       'operationAmount': {'amount': '21344.35', 'currency': {'name': 'руб.', 'code': 'RUB'}},

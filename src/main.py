@@ -1,18 +1,13 @@
-from utils import open_data
-from utils import get_executed_operation
-from utils import sort_operations_by_date
-from utils import format_date
-from utils import quantity_sort_operations_by_date
-from utils import account_mask
+from config import ROOT_DIR_new
+from src.utils import (account_mask, format_date, get_executed_operation,
+                       open_data, quantity_sort_operations_by_date,
+                       sort_operations_by_date)
 
-
-
-new_list=open_data("operations.json")
-right_list=get_executed_operation(new_list)
-sort_list=sort_operations_by_date(right_list)
-five_operations = quantity_sort_operations_by_date(sort_list,5)
-
-
+OPERATIONS_PATH = ROOT_DIR_new.joinpath('src', 'operations.json')
+new_list = open_data(OPERATIONS_PATH)
+right_list = get_executed_operation(new_list)
+sort_list = sort_operations_by_date(right_list)
+five_operations = quantity_sort_operations_by_date(sort_list, 5)
 
 for item in five_operations:
     data_operationAmount = item['operationAmount']

@@ -1,11 +1,12 @@
 import json
-from operator import itemgetter
 from datetime import datetime
+from operator import itemgetter
+
 
 def open_data(path):
 
     """"Достаем данные из json"""
-    with open(path,"r", encoding ="utf-8") as file:
+    with open(path, "r", encoding="utf-8") as file:
         list_json = json.load(file)
         return list_json
 
@@ -22,30 +23,32 @@ def get_executed_operation(data):
     return (executed_list)
 
 
-#out_filter = filter(get_executed_operation, new_list)
+# out_filter = filter(get_executed_operation, new_list)
 
 def sort_operations_by_date(data):
     """
     сортировка  по дате в порядке возрастания
     """
     data = [trans for trans in data if trans]
-    data_new = sorted(data, key= itemgetter("date"))
+    data_new = sorted(data, key=itemgetter("date"))
     return data_new
 
-def quantity_sort_operations_by_date (list, last_count):
+
+def quantity_sort_operations_by_date(list, last_count):
     """
     вывод последних пять выполненных операций
     """
-    five_sort=list [-last_count:]
-    #res = ' '.join(reversed(five_sort))
+    five_sort = list[-last_count:]
+    # res = ' '.join(reversed(five_sort))
     return five_sort
+
 
 def format_date(date):
     """
      принимает значение ключа 'date' и форматирует дату в нужный формат для вывода
     """
     dt = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
-    return ( dt.strftime('%d.%m.%Y'))
+    return (dt.strftime('%d.%m.%Y'))
 
 
 def account_mask(account):
